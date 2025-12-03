@@ -1,0 +1,68 @@
+#representasi graf & algoritma greedy untuk lintasan terpendek
+
+#Representasi graf
+  A. Adjacency list -> efisien untuk graf jarang
+  B. Adjacency list -> efisien untuk graf padat
+Matriks berukuran n * n, menyimpan bobot antar simpul.
+
+#Numpy
+  Numpy adalah library python untuk:
+    * Operasi vektor
+    * Operasi matriks
+    * Komputasi numerik
+  Sangat penting karena adjacency matrix dalam graf dipresentasikan
+  sebagai matriks.
+
+#Membuat Adjacency matrix dengan numpy
+
+Python:
+import numpy as np
+nodes = ['A','B','C','D']
+A = np.array([
+  [0,2,4,0],
+  [2,0,0,3],
+  [4,0,0,1],
+  [0,3,1,0]
+])
+print(A)
+
+#Operasi matrix menggunakan numpy
+
+#Membuat matrix baru
+import numpy as np
+M1 = np.array([[1,2], [3,4]])
+M2 = np.array([[5,6], [7,8]])
+
+#Penjumlahan matriks
+M_tambah = M1 + M2
+
+#Pengurangan matriks
+M_kurang = M1 - M2
+
+#Perkalian matriks (Dot Product)
+M_kali = np.dot(M1, M2)
+#atau
+M_kali = M1 @ M2
+
+#Transpose Matriks
+M_transpose = M1.T
+
+#Mengakses elemen matriks
+print(M1[0][1]) # baris 1 kolom 2
+
+#Membuat matriks Nol/Identitas
+Z = np.zeros((3,3))
+I = np.eye(3)
+
+#Kaitan operasi matriks dengan graf
+* Adjacency matrix adalah matriks.
+* Operasi matriks membantu:
+  * Memanipulasi bobot graf
+  * Mencari jalur tertentu
+  * Menghitung degree node
+  * Mempersiapkan algoritma graf lanjutan (Floyd Warshall,PageRank)
+Contoh:
+Untuk adjacency matrix A, degree node dapat dihitung dengan:
+
+degree = np.sum(A > 0,axis=1)
+print(degree)
